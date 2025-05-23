@@ -1,13 +1,14 @@
 import java.util.Objects;
 
 public class Game {
-    private String name;
-    private double rating;
-    private int price;
+    private final String name;
+    private final double rating;
+    private final int price;
 
     public Game(String name, double rating, int price) {
-        //TODO
-
+        this.name = name;
+        this.price = price;
+        this.rating = rating;
     }
 
     public String getName() {
@@ -25,8 +26,7 @@ public class Game {
 
     @Override
     public String toString() {
-        //TODO
-        return "";
+        return "name : " + getName() + "\nprice : " + getPrice() + "\nrating : " + getRating();
     }
 
     @Override
@@ -34,7 +34,10 @@ public class Game {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Game game = (Game) o;
-        return Double.compare(game.rating, rating) == 0 && Double.compare(game.price, price) == 0 && Objects.equals(name, game.name);
+        return Double.compare(game.rating, rating) == 0 &&
+                price == game.price &&
+                Objects.equals(name, game.name);
     }
+
 
 }
